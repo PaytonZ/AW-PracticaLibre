@@ -1,35 +1,14 @@
-
-/**
- * Main AngularJS Web Application
- */
+ /*Aplicación Principal Angular JS*/
  var app = angular.module('practicaLibreAW', [
-  'ngRoute'
+  'ngRoute' // 'ngMódulo' de enroutado
   ]);
-
-/**
- * Configure the Routes
- */
+ /*Configurando que controlador se encarga de qué página*/
  app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
-    // Home
-    .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
-    // Pages
-    .when("/ultrasonidos", {templateUrl: "partials/ultrasonidos.html", controller: "PageCtrl"})
-    .when("/electromagnetico", {templateUrl: "partials/electromagnetico.html", controller: "PageCtrl"})
-    // else 404
-    .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
-  }]);
-
-
-/**
- * Controls the pages
- */
- app.controller('PageCtrl', function (/* $scope, $location, $http */) {
-  console.log("Controlador de Páginas Activado");
-
-  // Activates the Carousel
-  $('.carousel').carousel({
-    interval: 5000
-  });
-
-});
+  .when("/", {templateUrl: "home.html", controller: "PageCtrl"})
+  .when("/pagina1", {templateUrl: "pagina1.html", controller: "PageCtrl"})
+  .when("/pagina2", {templateUrl: "pagina2.html", controller: "PageCtrl"})
+  .otherwise("/404", {templateUrl: "404.html", controller: "PageCtrl"});
+}]);
+ /*Configurando un Controlador */
+ app.controller('PageCtrl', function (/* $scope, $location, $http */) {});
